@@ -7,7 +7,6 @@ import com.xrbpowered.folderscan.ui.FileSort.SortMode;
 import com.xrbpowered.zoomui.GraphAssist;
 import com.xrbpowered.zoomui.UIContainer;
 import com.xrbpowered.zoomui.UIElement;
-import com.xrbpowered.zoomui.base.UIHoverElement;
 import com.xrbpowered.zoomui.std.UIListItem;
 
 public class UIFileListHeader extends UIContainer {
@@ -20,7 +19,7 @@ public class UIFileListHeader extends UIContainer {
 	
 	public static final float height = 32;
 	
-	public class UIHeaderButton extends UIHoverElement {
+	public class UIHeaderButton extends UIElement {
 
 		public final String label;
 		public final SortMode sortMode;
@@ -35,6 +34,7 @@ public class UIFileListHeader extends UIContainer {
 
 		public UIHeaderButton(String label, SortMode sortMode, float width, float tx, int align, float marginLeft, float marginRight) {
 			super(UIFileListHeader.this);
+			repaintOnHover = true;
 			this.label = label;
 			this.sortMode = sortMode;
 			this.baseTx = tx;

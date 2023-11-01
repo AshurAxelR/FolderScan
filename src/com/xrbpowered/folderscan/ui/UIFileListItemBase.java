@@ -9,14 +9,14 @@ import com.xrbpowered.folderscan.data.FileInfo;
 import com.xrbpowered.folderscan.data.FolderInfo;
 import com.xrbpowered.folderscan.ui.FileSort.SortMode;
 import com.xrbpowered.zoomui.GraphAssist;
-import com.xrbpowered.zoomui.base.UIHoverElement;
+import com.xrbpowered.zoomui.UIElement;
 import com.xrbpowered.zoomui.icons.IconPalette;
 import com.xrbpowered.zoomui.icons.SvgIcon;
 import com.xrbpowered.zoomui.std.UIListBox;
 import com.xrbpowered.zoomui.std.UIListItem;
 import com.xrbpowered.zoomui.std.UIToolButton;
 
-public abstract class UIFileListItemBase extends UIHoverElement {
+public abstract class UIFileListItemBase extends UIElement {
 	
 	public static final Color colorBackground = UIFileList.colorBackground;
 	public static final Color colorHighlight = UIListItem.colorHighlight;
@@ -61,6 +61,7 @@ public abstract class UIFileListItemBase extends UIHoverElement {
 	
 	public UIFileListItemBase(UIFileList list, FileInfo info, boolean first) {
 		super(list.getView());
+		repaintOnHover = true;
 		this.list = list;
 		this.info = info;
 		this.first = first;
