@@ -95,14 +95,21 @@ public abstract class UIFileListItemBase extends UIElement {
 		g.drawString(s, hdr.getTextX()+tx, getHeight()/2, hdr.align, GraphAssist.CENTER);
 	}
 
+	protected void drawSizeDiff(GraphAssist g) {
+		if(info.sizeDiff!=0) {
+			UIFileListHeader hdr = FolderScanUI.ui.listHeader;
+			g.setColor(info.sizeDiff>0 ? colorGreen: colorRed);
+			drawString(g, formatLargeNumber(info.sizeDiff, "(%%+.%df%%s)"), hdr.headerSizeDiff);
+		}
+	}
+	
 	private float wsize = -1f;
 	
-	protected void paintInfo(GraphAssist g, boolean canFill) {
-		canFill &= !info.marked;
-		UIFileListHeader hdr = FolderScanUI.ui.listHeader;
-		
+	protected void drawName(GraphAssist g) {
 		if(wsize<0f)
 			wsize = g.getFontMetrics().charWidth('W');
+		
+		UIFileListHeader hdr = FolderScanUI.ui.listHeader;
 		float tx = hdr.headerName.getTextX();
 		float w = hdr.headerName.getWidth();
 		if(info.name.length()*wsize > w-tx && g.getFontMetrics().stringWidth(info.name)>w-tx) {
@@ -115,11 +122,14 @@ public abstract class UIFileListItemBase extends UIElement {
 		else {
 			drawString(g, info.name, hdr.headerName);
 		}
+	}
+	
+	protected void paintInfo(GraphAssist g, boolean canFill) {
+		canFill &= !info.marked;
+		UIFileListHeader hdr = FolderScanUI.ui.listHeader;
 		
-		if(info.sizeDiff!=0) {
-			g.setColor(info.sizeDiff>0 ? colorGreen: colorRed);
-			drawString(g, formatLargeNumber(info.sizeDiff, "(%%+.%df%%s)"), hdr.headerSizeDiff);
-		}
+		drawName(g);
+		drawSizeDiff(g);
 		
 		g.setColor(isChanged() ? colorText : colorTextDisabled);
 		drawString(g, formatDate(info.time), hdr.headerTime);

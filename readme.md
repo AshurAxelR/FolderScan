@@ -2,7 +2,7 @@
 
 **FolderScan** is a tool for quick scanning for changed files within the speficied folders, comparing the current structure to a previously created snapshot. The tool uses modification date/time and file size information provided by the system to detect modifications, it does not calculate file hashes.
 
-**Added in version 1.1:** difference view in GUI mode.
+**Since version 1.1:** difference view in GUI mode.
 
 ![Screenshot](screenshot.png?raw=true)
 
@@ -20,9 +20,11 @@ ignore:
 
 To use it, rename to `folderscan.cfg`. In this example, the tool will scan `D:/Workspace` ignoring folders named `.git`, `.metadata`, etc. _Please note, that the ignore filter is only applied to folders, not files!_
 
+**Since version 1.1.2:** support for `.noscan` files. Add an empty `.noscan` file in any folder, and the folder will be ignored regardless of the config.
+
 ## Download
 
-**JAR file:** [folderscan.jar](https://github.com/AshurAxelR/FolderScan/releases/download/1.1/folderscan.jar) (214 KB)
+**JAR file:** [folderscan.jar](https://github.com/AshurAxelR/FolderScan/releases/download/1.1.2/folderscan.jar) (284 KB)
 
 ## Using the tool
 

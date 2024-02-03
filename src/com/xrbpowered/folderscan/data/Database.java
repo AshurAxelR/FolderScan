@@ -141,7 +141,7 @@ public class Database extends FolderInfo {
 				add(info);
 			}
 			else {
-				FolderInfo res = FolderInfo.compareFolder(trimPath(s), info, old, config);
+				FolderInfo res = FolderInfo.compareFolder(info, old, config);
 				res.name = s;
 				res.sizeDiff = info.size - old.size;
 				countAdded += res.countAdded;

@@ -20,9 +20,10 @@ public class UIFolderItem extends UIFileListItemBase {
 		if(((FolderInfo)info).ignore) {
 			g.fill(this, hover ? colorHighlight : colorBackground);
 			folderIcon.paint(g.graph, 2, 8, 4, 16, getPixelScale(), true);
+			drawSizeDiff(g);
 			g.setColor(colorAmber);
+			drawName(g);
 			UIFileListHeader hdr = FolderScanUI.ui.listHeader;
-			drawString(g, info.name, hdr.headerName);
 			drawString(g, "(ignore)", hdr.headerTime);
 		}
 		else {
