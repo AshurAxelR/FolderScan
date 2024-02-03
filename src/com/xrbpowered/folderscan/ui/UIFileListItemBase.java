@@ -29,19 +29,19 @@ public abstract class UIFileListItemBase extends UIElement {
 	
 	public static final SvgIcon fileIcon = new SvgIcon(UIToolButton.iconPath+"file.svg", 160, UIToolButton.palette);
 	public static final SvgIcon folderIcon = new SvgIcon(UIToolButton.iconPath+"folder.svg", 160, UIToolButton.palette);
-	public static final SvgIcon navIcon = new SvgIcon(UIToolButton.iconPath+"up.svg", 160, UIToolButton.palette);
+	public static final SvgIcon navIcon = new SvgIcon(UIToolButton.iconPath+"o_up.svg", 160, UIToolButton.palette);
 	public static final SvgIcon homeIcon = new SvgIcon(UIToolButton.iconPath+"home.svg", 160, UIToolButton.palette);
 
-	public static final SvgIcon iconCheckRemoved = new SvgIcon(UIToolButton.iconPath+"ok.svg", 160, new IconPalette(new Color[][] {
+	public static final SvgIcon iconCheckRemoved = new SvgIcon(UIToolButton.iconPath+"o_minus.svg", 160, new IconPalette(new Color[][] {
 		{new Color(0xeeeeee), new Color(0xeecccc), new Color(0xaa0000), Color.RED}
 	}));
-	public static final SvgIcon iconCheckModified = new SvgIcon(UIToolButton.iconPath+"ok.svg", 160, new IconPalette(new Color[][] {
+	public static final SvgIcon iconCheckModified = new SvgIcon(UIToolButton.iconPath+"alert.svg", 160, new IconPalette(new Color[][] {
 		{new Color(0xeeeeee), new Color(0xeeddbb), new Color(0xdd5500), new Color(0xffaa00)}
 	}));
 	public static final SvgIcon iconCheckMarked = new SvgIcon(UIToolButton.iconPath+"ok.svg", 160, new IconPalette(new Color[][] {
 		{new Color(0xeeeeee), new Color(0xccddee), new Color(0x0077dd), new Color(0x00bbff)}
 	}));
-	public static final SvgIcon iconCheckAdded = new SvgIcon(UIToolButton.iconPath+"ok.svg", 160, new IconPalette(new Color[][] {
+	public static final SvgIcon iconCheckAdded = new SvgIcon(UIToolButton.iconPath+"o_plus.svg", 160, new IconPalette(new Color[][] {
 		{new Color(0xeeeeee), new Color(0xcceecc), new Color(0x007700), new Color(0x00ee00)}
 	}));
 
