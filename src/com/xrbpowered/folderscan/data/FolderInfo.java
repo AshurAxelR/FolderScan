@@ -83,7 +83,7 @@ public class FolderInfo extends FileInfo {
 
 	public static FolderInfo scanFolder(String path, File dir, Config config) {
 		FolderInfo info = new FolderInfo(dir.getName());
-		if(config.ignorePath(path)) {
+		if(config.ignorePath(path) || new File(dir, ".noscan").exists()) {
 			info.ignore = true;
 			return info;
 		}
@@ -122,9 +122,9 @@ public class FolderInfo extends FileInfo {
 		return info;
 	}
 	
-	public static FolderInfo compareFolder(String path, FolderInfo info, FolderInfo old, Config config) {
+	public static FolderInfo compareFolder(FolderInfo info, FolderInfo old, Config config) {
 		FolderInfo res = new FolderInfo(info.name);
-		if(config.ignorePath(path)) {
+		if(info.ignore) {
 			info.ignore = true;
 			return info;
 		}
@@ -132,7 +132,7 @@ public class FolderInfo extends FileInfo {
 		for(FolderInfo dir : info.folders.values()) {
 			FolderInfo dirOld = old.folders.get(dir.name);
 			if(dirOld!=null) {
-				FolderInfo r = compareFolder(path+"/"+dir.name, dir, dirOld, config);
+				FolderInfo r = compareFolder(dir, dirOld, config);
 				r.sizeDiff = dir.size - dirOld.size;
 				res.countAdded += r.countAdded;
 				res.countModified += r.countModified;
